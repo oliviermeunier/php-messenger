@@ -1,0 +1,15 @@
+{
+    "require-dev": {
+        "symfony/var-dumper": "^6.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Pneuma\\": "src/"
+        }
+    },
+    "require": {
+        "symfony/dotenv": "^6.3",
+        "symfony/serializer": "^6.3",
+        "symfony/property-access": "^6.3"
+    }
+}
