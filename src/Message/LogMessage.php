@@ -12,11 +12,6 @@ class LogMessage implements QueueMessageInterface
     ) {
     }
 
-    /**
-     * @TODO Ignore Attribute is not working
-     */
-
-    #[Ignore]
     public function getPayload()
     {
         return $this->log;
