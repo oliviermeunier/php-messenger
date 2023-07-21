@@ -28,6 +28,18 @@ class LogMessage implements QueueMessageInterface
         return $this;
     }
 
+    public function getDataToSerialize(): array
+    {
+        return [
+            'log' => $this->log
+        ];
+    }
+
+    public function hydrate(array $messageData): void
+    {
+        $this->log = $messageData['log'];
+    }
+
     public function __toString(): string
     {
         return "{$this->log}\n";

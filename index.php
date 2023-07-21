@@ -6,10 +6,10 @@
 
 require __DIR__ . '/vendor/autoload.php';
 
-use Pneuma\Adapter\QueueMessageSymfonySerializerAdapter;
-use Pneuma\Message\LogMessage;
 use Pneuma\Redis\RedisQueue;
+use Pneuma\Message\LogMessage;
 use Symfony\Component\Dotenv\Dotenv;
+use Pneuma\Serializer\QueueMessageSerializer;
 
 $dotenv = new Dotenv();
 $dotenv->loadEnv(__DIR__ . '/.env');
@@ -21,7 +21,7 @@ if ($redis->ping()) {
     echo "Redis connection successfull";
 }
 
-$serializer = new QueueMessageSymfonySerializerAdapter();
+$serializer = new QueueMessageSerializer();
 
 $redisQ = new RedisQueue($redis, $serializer, 'test');
 $redisQ->push(new LogMessage('toto'));
